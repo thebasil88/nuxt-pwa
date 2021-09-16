@@ -9,7 +9,7 @@
           </div>
           <div class="grid grid-cols-2 sm:grid-cols-3 justify-center gap-8 mb-10">
             <article class="" v-for="(product, index) in guide.attributes.products" :key="index">
-              <img :src="product.image" :alt="product.name">
+              <img :src="product.image" :alt="product.name" width="464" height="464">
               <p class="font-mono">{{product.name}}</p>
               <button
                 class="buy-button snipcart-add-item mt-6 py-2 px-4 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 text-white font-bold rounded-full shadow-offset hover:shadow-lg transition duration-300"

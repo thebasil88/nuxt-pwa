@@ -4,7 +4,7 @@
     <div v-html="html" class="markdown"></div>
     <div class="grid grid-cols-2 sm:grid-cols-3 gap-8">
       <article v-for="(product, index) in attributes.products" :key="index">
-        <img class="mx-auto" :src="`../${product.image}`" :alt="product.name" />
+        <img class="mx-auto" :src="`../${product.image}`" :alt="product.name"  width="464" height="464"/>
         <p class="font-mono">{{product.name}}</p>
         <button
           class="buy-button snipcart-add-item mt-6 py-2 px-4 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 text-white font-bold rounded-full shadow-offset hover:shadow-lg transition duration-300"
