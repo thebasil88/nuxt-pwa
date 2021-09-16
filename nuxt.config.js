@@ -44,10 +44,19 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/pwa
+	'@nuxtjs/onesignal',
     '@nuxtjs/pwa',
 	
   ],
-
+	oneSignal: {
+	  init: {
+		appId: '459935f7-9a37-471f-89dc-7f98ac6edac8',
+		allowLocalhostAsSecureOrigin: true,
+		welcomeNotification: {
+			disable: true
+		}
+	  }
+	},
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
