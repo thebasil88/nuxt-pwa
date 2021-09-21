@@ -23,8 +23,9 @@
             </article>
           </div>
         </section>
-		<section id="installsection" class="text-center" v-if="deferredPrompt">
-			<button @click="install" class="py-2 px-4 text-center rounded-full bg-indigo-600 font-2xl color-white">Install</button>
+		<section id="installsection" class="text-center py-8" v-if="deferredPrompt">
+			<p class="text-4xl uppercase pb-4">Like our store? Install our App!</p>
+			<button @click="install" class="py-2 px-8 text-center rounded-full bg-indigo-600 text-2xl text-white">Install</button>
 		</section>
       </div>
     </main>
