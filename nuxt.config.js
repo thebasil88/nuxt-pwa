@@ -59,10 +59,12 @@ export default {
 	},
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
+	icon:{},
     manifest: {
       name: 'Nuxt.js PWA Coffee Shop',
 	  short_name: 'Nuxt.js PWA',
 	  lang: 'en',
+	  theme_color: "#fff",
 	  display: 'standalone',
     }
   },
