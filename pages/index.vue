@@ -23,6 +23,9 @@
             </article>
           </div>
         </section>
+		<section id="installsection" class="text-center" v-if="deferredPrompt">
+			<button @click="install" class="py-2 px-4 text-center rounded-full bg-indigo-600 font-2xl color-white">Install</button>
+		</section>
       </div>
     </main>
   </div>
@@ -32,9 +35,33 @@
 import guides from '~/contents/guides/guides.js'
 
 export default {
+  data(){
+	return {
+		deferredPrompt: null
+	}
+  },
+  created() {
+    window.addEventListener("beforeinstallprompt", e => {
+      e.preventDefault();
+	  console.log('before install prompt');
+      // Stash the event so it can be triggered later.
+      this.deferredPrompt = e;
+    });
+	window.addEventListener("appinstalled", () => {
+      this.deferredPrompt = null;
+    });
+  },
   async asyncData ({ route }) {
     const promises = guides.map(guide => import(`~/contents/guides/${guide}.md`))
     return { guides: await Promise.all(promises) }
+  },
+  methods: {
+    async dismiss() {
+      this.deferredPrompt = null;
+    },
+    async install() {
+      this.deferredPrompt.prompt();
+    }
   },
   head() {
     return {
